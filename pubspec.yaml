@@ -10,6 +10,7 @@ dependencies:
   get: 4.6.3
   flutter:
     sdk: flutter
+  flutter_svg: ^1.1.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -24,6 +25,10 @@ flutter:
   assets:
     - assets/images/
     - assets/images/icons/
+    - assets/images/banners/
+    - assets/svg/
+    - assets/svg/icons/
+    - assets/svg/navbar/
 
   # For details regarding assets in packages, see
   # https://flutter.dev/assets-and-images/#from-packages
@@ -42,6 +47,8 @@ flutter:
         - asset: assets/fonts/Montserrat/Montserrat-Regular.ttf
         - asset: assets/fonts/Montserrat/Montserrat-Italic.ttf
           style: italic
+        - asset: assets/fonts/Montserrat/Montserrat-Medium.ttf
+          weight: 400
         - asset: assets/fonts/Montserrat/Montserrat-Bold.ttf
           weight: 700
   #

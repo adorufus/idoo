@@ -11,6 +11,7 @@ void main() {
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
       theme: ThemeData(
+        scaffoldBackgroundColor: const Color(0xFFF1F1F1),
         fontFamily: 'Montserrat',
       ),
     ),

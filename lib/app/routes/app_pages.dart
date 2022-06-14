@@ -1,22 +1,44 @@
 import 'package:get/get.dart';
-import 'package:idoo/app/modules/landing/landing_view.dart';
 
-import '../modules/about/bindings/about_binding.dart';
-import '../modules/about/views/about_view.dart';
-import '../modules/dashboard/bindings/dashboard_binding.dart';
-import '../modules/dashboard/views/dashboard_view.dart';
-import '../modules/history/bindings/history_binding.dart';
-import '../modules/history/views/history_view.dart';
-import '../modules/home/bindings/home_binding.dart';
-import '../modules/home/views/home_view.dart';
-import '../modules/login/bindings/login_binding.dart';
-import '../modules/login/views/login_view.dart';
-import '../modules/otp/bindings/otp_binding.dart';
-import '../modules/otp/views/otp_view.dart';
-import '../modules/profile/bindings/profile_binding.dart';
-import '../modules/profile/views/profile_view.dart';
-import '../modules/register/bindings/register_binding.dart';
-import '../modules/register/views/register_view.dart';
+import '../modules/auth_modules/login/bindings/login_binding.dart';
+import '../modules/auth_modules/login/views/login_view.dart';
+import '../modules/auth_modules/otp/bindings/otp_binding.dart';
+import '../modules/auth_modules/otp/views/otp_view.dart';
+import '../modules/auth_modules/register/bindings/register_binding.dart';
+import '../modules/auth_modules/register/views/register_view.dart';
+import '../modules/home_modules/bill/bindings/bill_binding.dart';
+import '../modules/home_modules/bill/views/bill_view.dart';
+import '../modules/home_modules/e_wallet/bindings/e_wallet_binding.dart';
+import '../modules/home_modules/e_wallet/views/e_wallet_view.dart';
+import '../modules/home_modules/games/bindings/games_binding.dart';
+import '../modules/home_modules/games/views/games_view.dart';
+import '../modules/home_modules/home/bindings/home_binding.dart';
+import '../modules/home_modules/home/views/home_view.dart';
+import '../modules/home_modules/installment/bindings/installment_binding.dart';
+import '../modules/home_modules/installment/views/installment_view.dart';
+import '../modules/home_modules/pulsa/bindings/pulsa_binding.dart';
+import '../modules/home_modules/pulsa/views/pulsa_view.dart';
+import '../modules/home_modules/top_up/bindings/top_up_binding.dart';
+import '../modules/home_modules/top_up/views/top_up_view.dart';
+import '../modules/home_modules/travel/bindings/travel_binding.dart';
+import '../modules/home_modules/travel/views/travel_view.dart';
+import '../modules/home_modules/notification/bindings/notification_binding.dart';
+import '../modules/home_modules/notification/views/notification_view.dart';
+import '../modules/landing/landing_view.dart';
+import '../modules/main_modules/about/bindings/about_binding.dart';
+import '../modules/main_modules/about/views/about_view.dart';
+import '../modules/main_modules/dashboard/bindings/dashboard_binding.dart';
+import '../modules/main_modules/dashboard/views/dashboard_view.dart';
+import '../modules/main_modules/history/bindings/history_binding.dart';
+import '../modules/main_modules/history/views/history_view.dart';
+import '../modules/profile_modules/edit_password/bindings/edit_password_binding.dart';
+import '../modules/profile_modules/edit_password/views/edit_password_view.dart';
+import '../modules/profile_modules/edit_pin/bindings/edit_pin_binding.dart';
+import '../modules/profile_modules/edit_pin/views/edit_pin_view.dart';
+import '../modules/profile_modules/edit_profile/bindings/edit_profile_binding.dart';
+import '../modules/profile_modules/edit_profile/views/edit_profile_view.dart';
+import '../modules/profile_modules/profile/bindings/profile_binding.dart';
+import '../modules/profile_modules/profile/views/profile_view.dart';
 
 part 'app_routes.dart';
 
@@ -38,7 +60,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.DASHBOARD,
-      page: () => const DashboardView(),
+      page: () => DashboardView(),
       binding: DashboardBinding(),
     ),
     GetPage(
@@ -69,6 +91,61 @@ class AppPages {
     GetPage(
       name: _Paths.LANDING,
       page: () => LandingView(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_PROFILE,
+      page: () => const EditProfileView(),
+      binding: EditProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_PASSWORD,
+      page: () => const EditPasswordView(),
+      binding: EditPasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_PIN,
+      page: () => const EditPinView(),
+      binding: EditPinBinding(),
+    ),
+    GetPage(
+      name: _Paths.E_WALLET,
+      page: () => const EWalletView(),
+      binding: EWalletBinding(),
+    ),
+    GetPage(
+      name: _Paths.PULSA,
+      page: () => const PulsaView(),
+      binding: PulsaBinding(),
+    ),
+    GetPage(
+      name: _Paths.GAMES,
+      page: () => const GamesView(),
+      binding: GamesBinding(),
+    ),
+    GetPage(
+      name: _Paths.BILL,
+      page: () => const BillView(),
+      binding: BillBinding(),
+    ),
+    GetPage(
+      name: _Paths.TRAVEL,
+      page: () => const TravelView(),
+      binding: TravelBinding(),
+    ),
+    GetPage(
+      name: _Paths.INSTALLMENT,
+      page: () => const InstallmentView(),
+      binding: InstallmentBinding(),
+    ),
+    GetPage(
+      name: _Paths.TOP_UP,
+      page: () => const TopUpView(),
+      binding: TopUpBinding(),
+    ),
+    GetPage(
+      name: _Paths.NOTIFICATION,
+      page: () => const NotificationView(),
+      binding: NotificationBinding(),
     ),
   ];
 }

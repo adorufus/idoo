@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:idoo/app/global_widgets/general_button.dart';
+import 'package:idoo/app/routes/app_pages.dart';
 
 class LandingView extends GetView {
   @override
@@ -29,38 +30,36 @@ class LandingView extends GetView {
               Column(
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Flexible(
-                      child: Text(
-                        "Earn your money from us reach a borderless possibility",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 18, color: Colors.white),
-                      ),
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Text(
+                      "Earn your money from us reach a borderless possibility",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 18, color: Colors.white),
                     ),
                   ),
                   SizedBox(
                     height: 30,
                   ),
-                  SizedBox(
-                    width: 332,
-                    height: 60,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ButtonStyle(
-                          elevation: MaterialStateProperty.all<double>(0),
-                          backgroundColor:
-                              MaterialStateProperty.all<Color>(Colors.white),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ))),
-                      child: Text(
-                        "Get Started",
-                        style: TextStyle(
-                          color: Color(0xff0897A5),
-                          fontWeight: FontWeight.bold,
-                        ),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Material(
+                      color: Colors.transparent,
+                      child: InkWell(
+                        onTap: () => Get.toNamed(Routes.LOGIN),
+                        child: Container(
+                            width: 332,
+                            height: 60,
+                            child: Center(
+                              child: Text(
+                                "Get Started",
+                                style: TextStyle(
+                                  color: Color(0xff0897A5),
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            )),
                       ),
                     ),
                   )
