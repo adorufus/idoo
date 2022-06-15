@@ -12,13 +12,10 @@ class EditPasswordView extends GetView<EditPasswordController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xff0897A5),
         title: Text(
           'Ubah Password',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        centerTitle: true,
-        elevation: 0,
       ),
       body: Column(children: [
         Container(

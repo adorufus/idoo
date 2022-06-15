@@ -15,8 +15,6 @@ class LoginView extends GetView<LoginController> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        elevation: 0,
-        centerTitle: true,
         iconTheme: IconThemeData(color: Color(0xff898989)),
       ),
       body: SafeArea(

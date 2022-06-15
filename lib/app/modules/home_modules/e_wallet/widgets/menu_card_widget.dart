@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:idoo/app/modules/home_modules/top_up/controllers/top_up_controller.dart';
+import 'package:idoo/app/modules/home_modules/e_wallet/controllers/e_wallet_controller.dart';
 
-class MenuCardWidget extends GetView<TopUpController> {
+class MenuCardWidget extends GetView<EWalletController> {
   MenuCardWidget(this.title, this.subtitle, this.iconPath);
 
   final String title, subtitle, iconPath;
@@ -24,9 +24,12 @@ class MenuCardWidget extends GetView<TopUpController> {
               child: Center(
                 child: ListTile(
                   leading: CircleAvatar(
-                    radius: 40,
+                    radius: 50,
                     backgroundColor: Colors.transparent,
-                    child: SvgPicture.asset(iconPath, height: 40),
+                    child: Image.asset(
+                      iconPath,
+                      scale: 1.5,
+                    ),
                   ),
                   title: Text(title,
                       style: TextStyle(

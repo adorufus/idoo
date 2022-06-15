@@ -12,13 +12,10 @@ class EditProfileView extends GetView<EditProfileController> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color(0xff0897A5),
         title: Text(
           'Ubah Profile',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        centerTitle: true,
-        elevation: 0,
       ),
       body: SafeArea(
           child: SingleChildScrollView(

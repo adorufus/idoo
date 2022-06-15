@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:idoo/app/modules/auth_modules/otp/controllers/otp_controller.dart';
 
@@ -17,10 +18,8 @@ class OtpInputWidget extends GetView<OtpController> {
                 SizedBox(
                   width: 20,
                 ),
-                Icon(
-                  Icons.phonelink_lock_outlined,
-                  color: Color(0xffC4C4C4),
-                ),
+                SvgPicture.asset('assets/svg/icons/otp.svg',
+                    height: 30, fit: BoxFit.scaleDown),
                 SizedBox(
                   width: 20,
                 ),

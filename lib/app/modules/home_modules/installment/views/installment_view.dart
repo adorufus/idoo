@@ -10,13 +10,10 @@ class InstallmentView extends GetView<InstallmentController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xff0897A5),
         title: Text(
           'Angsuran',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        centerTitle: true,
-        elevation: 0,
       ),
       body: Center(
         child: Text(
