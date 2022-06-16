@@ -148,7 +148,7 @@ class HomeView extends GetView<HomeController> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
                       child: Text("Info & Promo Spesial",
                           style: TextStyle(
                               color: Color(0xff0897A5),
@@ -159,6 +159,7 @@ class HomeView extends GetView<HomeController> {
                     SizedBox(
                       height: 150,
                       child: ListView(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
                         scrollDirection: Axis.horizontal,
                         children: List.generate(
                             3,
@@ -175,7 +176,7 @@ class HomeView extends GetView<HomeController> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
                       child: Text("Tutorial & Cara",
                           style: TextStyle(
                               color: Color(0xff0897A5),

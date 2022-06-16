@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:idoo/app/modules/home_modules/pulsa//widgets/phone_input_widget.dart';
-import 'package:idoo/app/modules/home_modules/pulsa/widgets/pulsa_tab_widget/pulsa_tab_widget.dart';
-import 'package:idoo/app/modules/home_modules/pulsa/widgets/pulsa_tab_widget/pulsa_tabview_widget.dart';
+import 'package:idoo/app/modules/home_modules/e_wallet_modules/e_wallet_detail/widgets/e_wallet_tab_widget/e_wallet_tab_widget.dart';
+import 'package:idoo/app/modules/home_modules/e_wallet_modules/e_wallet_detail/widgets/e_wallet_tab_widget/e_wallet_tabview_widget.dart';
+import 'package:idoo/app/modules/home_modules/e_wallet_modules/e_wallet_detail/widgets/id_input_widget.dart';
+import 'package:idoo/app/modules/home_modules/e_wallet_modules/e_wallet_detail/widgets/nominal_input_widget.dart';
 
-import '../controllers/pulsa_controller.dart';
+import '../controllers/e_wallet_detail_controller.dart';
 
-class PulsaView extends GetView<PulsaController> {
-  const PulsaView({Key? key}) : super(key: key);
+class EWalletDetailView extends GetView<EWalletDetailController> {
+  const EWalletDetailView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,8 +20,7 @@ class PulsaView extends GetView<PulsaController> {
         body: Column(
           children: [
             Container(
-              width: MediaQuery.of(context).size.width,
-              height: 220,
+              height: 380,
               color: Colors.white,
               child: Center(
                 child: Column(
@@ -33,7 +33,7 @@ class PulsaView extends GetView<PulsaController> {
                           alignment: Alignment.topLeft,
                           child: Padding(
                             padding: const EdgeInsets.only(left: 25),
-                            child: Text("Pulsa & Data",
+                            child: Text("E-Wallet",
                                 style: TextStyle(
                                     color: Color(0xff0897A5),
                                     fontSize: 24,
@@ -41,15 +41,17 @@ class PulsaView extends GetView<PulsaController> {
                           ),
                         ),
                         SizedBox(height: 30),
-                        PhoneInputWidget(),
+                        IdInputWidget(),
+                        SizedBox(height: 30),
+                        NominalInputWidget(),
                       ],
                     ),
-                    PulsaTabWidget()
+                    EWalletTabWidget()
                   ],
                 ),
               ),
             ),
-            PulsaTabViewWidget()
+            EWalletTabViewWidget()
           ],
         ));
   }

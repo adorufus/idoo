@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:idoo/app/modules/home_modules/bill/controllers/bill_controller.dart';
+import 'package:idoo/app/modules/home_modules/e_wallet_modules/e_wallet/controllers/e_wallet_controller.dart';
 
-class MenuListTileWidget extends GetView<BillController> {
-  MenuListTileWidget(this.title, this.subtitle, this.iconPath);
+import '../../../../../routes/app_pages.dart';
+
+class MenuCardWidget extends GetView<EWalletController> {
+  MenuCardWidget(this.title, this.subtitle, this.iconPath);
 
   final String title, subtitle, iconPath;
 
@@ -12,42 +13,32 @@ class MenuListTileWidget extends GetView<BillController> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(width: 1.0, color: Colors.grey.shade300),
-          ),
-          color: Colors.white),
+          borderRadius: BorderRadius.circular(10), color: Colors.white),
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          onTap: () {},
+          onTap: () => Get.toNamed(Routes.E_WALLET_DETAIL),
           child: Container(
               width: 384,
-              height: 80,
+              height: 126,
               padding: EdgeInsets.only(right: 10),
               child: Center(
                 child: ListTile(
                   leading: CircleAvatar(
-                    radius: 30,
+                    radius: 50,
                     backgroundColor: Colors.transparent,
                     child: Image.asset(
                       iconPath,
                       scale: 1.5,
                     ),
                   ),
-                  trailing: Transform.scale(
-                      scaleX: -1,
-                      child: Icon(
-                        Icons.arrow_back_ios,
-                        color: Color(0xff0897A5),
-                        size: 20,
-                      )),
                   title: Text(title,
                       style: TextStyle(
                           color: Color(0xff0897A5),
-                          fontSize: 16,
+                          fontSize: 24,
                           fontWeight: FontWeight.bold)),
                   subtitle: Text(subtitle,
-                      style: TextStyle(color: Color(0xff565656), fontSize: 12)),
+                      style: TextStyle(color: Color(0xff565656), fontSize: 14)),
                 ),
               )),
         ),

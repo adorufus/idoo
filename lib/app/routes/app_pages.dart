@@ -6,31 +6,35 @@ import '../modules/auth_modules/otp/bindings/otp_binding.dart';
 import '../modules/auth_modules/otp/views/otp_view.dart';
 import '../modules/auth_modules/register/bindings/register_binding.dart';
 import '../modules/auth_modules/register/views/register_view.dart';
+import '../modules/home_modules/e_wallet_modules/e_wallet_detail/bindings/e_wallet_detail_binding.dart';
+import '../modules/home_modules/e_wallet_modules/e_wallet_detail/views/e_wallet_detail_view.dart';
+import '../modules/history_modules/history/bindings/history_binding.dart';
+import '../modules/history_modules/history/views/history_view.dart';
+import '../modules/history_modules/history_detail/bindings/history_detail_binding.dart';
+import '../modules/history_modules/history_detail/views/history_detail_view.dart';
 import '../modules/home_modules/bill/bindings/bill_binding.dart';
 import '../modules/home_modules/bill/views/bill_view.dart';
-import '../modules/home_modules/e_wallet/bindings/e_wallet_binding.dart';
-import '../modules/home_modules/e_wallet/views/e_wallet_view.dart';
+import '../modules/home_modules/e_wallet_modules/e_wallet/bindings/e_wallet_binding.dart';
+import '../modules/home_modules/e_wallet_modules/e_wallet/views/e_wallet_view.dart';
 import '../modules/home_modules/games/bindings/games_binding.dart';
 import '../modules/home_modules/games/views/games_view.dart';
 import '../modules/home_modules/home/bindings/home_binding.dart';
 import '../modules/home_modules/home/views/home_view.dart';
 import '../modules/home_modules/installment/bindings/installment_binding.dart';
 import '../modules/home_modules/installment/views/installment_view.dart';
+import '../modules/home_modules/notification/bindings/notification_binding.dart';
+import '../modules/home_modules/notification/views/notification_view.dart';
 import '../modules/home_modules/pulsa/bindings/pulsa_binding.dart';
 import '../modules/home_modules/pulsa/views/pulsa_view.dart';
 import '../modules/home_modules/top_up/bindings/top_up_binding.dart';
 import '../modules/home_modules/top_up/views/top_up_view.dart';
 import '../modules/home_modules/travel/bindings/travel_binding.dart';
 import '../modules/home_modules/travel/views/travel_view.dart';
-import '../modules/home_modules/notification/bindings/notification_binding.dart';
-import '../modules/home_modules/notification/views/notification_view.dart';
 import '../modules/landing/landing_view.dart';
 import '../modules/main_modules/about/bindings/about_binding.dart';
 import '../modules/main_modules/about/views/about_view.dart';
 import '../modules/main_modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/main_modules/dashboard/views/dashboard_view.dart';
-import '../modules/main_modules/history/bindings/history_binding.dart';
-import '../modules/main_modules/history/views/history_view.dart';
 import '../modules/profile_modules/edit_password/bindings/edit_password_binding.dart';
 import '../modules/profile_modules/edit_password/views/edit_password_view.dart';
 import '../modules/profile_modules/edit_pin/bindings/edit_pin_binding.dart';
@@ -146,6 +150,16 @@ class AppPages {
       name: _Paths.NOTIFICATION,
       page: () => const NotificationView(),
       binding: NotificationBinding(),
+    ),
+    GetPage(
+      name: _Paths.HISTORY_DETAIL,
+      page: () => const HistoryDetailView(),
+      binding: HistoryDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.E_WALLET_DETAIL,
+      page: () => const EWalletDetailView(),
+      binding: EWalletDetailBinding(),
     ),
   ];
 }

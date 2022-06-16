@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
 import 'package:idoo/app/modules/main_modules/about/views/about_view.dart';
-import 'package:idoo/app/modules/main_modules/history/views/history_view.dart';
+import 'package:idoo/app/modules/history_modules/history/views/history_view.dart';
 import 'package:idoo/app/modules/home_modules/home/views/home_view.dart';
 import 'package:idoo/app/modules/profile_modules/profile/views/profile_view.dart';
 

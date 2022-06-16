@@ -23,6 +23,8 @@ abstract class Routes {
   static const INSTALLMENT = _Paths.INSTALLMENT;
   static const TOP_UP = _Paths.TOP_UP;
   static const NOTIFICATION = _Paths.NOTIFICATION;
+  static const HISTORY_DETAIL = _Paths.HISTORY_DETAIL;
+  static const E_WALLET_DETAIL = _Paths.E_WALLET_DETAIL;
 }
 
 abstract class _Paths {
@@ -47,4 +49,6 @@ abstract class _Paths {
   static const INSTALLMENT = '/installment';
   static const TOP_UP = '/top-up';
   static const NOTIFICATION = '/notification';
+  static const HISTORY_DETAIL = '/history-detail';
+  static const E_WALLET_DETAIL = '/e-wallet-detail';
 }
