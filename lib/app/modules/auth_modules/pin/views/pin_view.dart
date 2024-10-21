@@ -9,6 +9,7 @@ import '../controllers/pin_controller.dart';
 
 class PinView extends GetView<PinController> {
   const PinView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +26,7 @@ class PinView extends GetView<PinController> {
               Column(
                 children: [
                   SizedBox(height: 30),
-                  Obx(() => Text(controller.title.string, style: TextStyle(fontSize: 24)),),
+                  Text(controller.title, style: TextStyle(fontSize: 24)),
                   SizedBox(height: 30),
                   PinInputWidget(),
                 ],

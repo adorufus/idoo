@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:idoo/app/constants/colors.dart';
 import 'package:idoo/app/modules/auth_modules/pin/controllers/pin_controller.dart';
+import 'package:idoo/app/routes/app_pages.dart';
 
 class PinInputWidget extends GetView<PinController> {
   @override
@@ -74,7 +75,7 @@ class PinInputWidget extends GetView<PinController> {
 
                         controller.pins.refresh();
 
-                        controller.onPinsFilled();
+                        controller.onPinsFilled(Routes.DASHBOARD);
 
                         print(controller.pins);
                       }

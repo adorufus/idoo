@@ -34,7 +34,9 @@ class OtpView extends GetView<OtpController> {
               Column(
                 children: [
                   SizedBox(height: 20),
-                  GeneralButton("Kirim", () => Get.toNamed(Routes.PIN),
+                  GeneralButton("Kirim", () => Get.toNamed(Routes.PIN, arguments: {
+                    'title': 'Silahkan Buat PIN'
+                  }),
                       0xff0897A5, Colors.white),
                 ],
               ),
