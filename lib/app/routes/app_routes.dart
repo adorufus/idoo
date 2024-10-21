@@ -11,6 +11,7 @@ abstract class Routes {
   static const LOGIN = _Paths.LOGIN;
   static const REGISTER = _Paths.REGISTER;
   static const OTP = _Paths.OTP;
+  static const PIN = _Paths.PIN;
   static const LANDING = _Paths.LANDING;
   static const EDIT_PROFILE = _Paths.EDIT_PROFILE;
   static const EDIT_PASSWORD = _Paths.EDIT_PASSWORD;
@@ -37,6 +38,7 @@ abstract class _Paths {
   static const LOGIN = '/login';
   static const REGISTER = '/register';
   static const OTP = '/otp';
+  static const PIN = '/pin';
   static const LANDING = '/landing';
   static const EDIT_PROFILE = '/edit-profile';
   static const EDIT_PASSWORD = '/edit-password';

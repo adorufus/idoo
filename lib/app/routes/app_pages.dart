@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:idoo/app/modules/auth_modules/pin/bindings/pin_binding.dart';
+import 'package:idoo/app/modules/auth_modules/pin/views/pin_view.dart';
 
 import '../modules/auth_modules/login/bindings/login_binding.dart';
 import '../modules/auth_modules/login/views/login_view.dart';
@@ -91,6 +93,11 @@ class AppPages {
       name: _Paths.OTP,
       page: () => const OtpView(),
       binding: OtpBinding(),
+    ),
+    GetPage(
+      name: _Paths.PIN,
+      page: () => const PinView(),
+      binding: PinBinding(),
     ),
     GetPage(
       name: _Paths.LANDING,

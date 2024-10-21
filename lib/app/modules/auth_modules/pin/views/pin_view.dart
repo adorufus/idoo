@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:idoo/app/modules/auth_modules/otp/widgets/otp_input_widget.dart';
+import 'package:idoo/app/modules/auth_modules/pin/widgets/pin_input_widget.dart';
 
 import '../../../../global_widgets/general_button.dart';
 import '../../../../routes/app_pages.dart';
-import '../controllers/otp_controller.dart';
+import '../controllers/pin_controller.dart';
 
-class OtpView extends GetView<OtpController> {
-  const OtpView({Key? key}) : super(key: key);
+class PinView extends GetView<PinController> {
+  const PinView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,20 +25,11 @@ class OtpView extends GetView<OtpController> {
               Column(
                 children: [
                   SizedBox(height: 30),
-                  Text("Masukkan Kode OTP", style: TextStyle(fontSize: 24)),
-                  SizedBox(height: 100),
-                  OtpInputWidget()
+                  Obx(() => Text(controller.title.string, style: TextStyle(fontSize: 24)),),
+                  SizedBox(height: 30),
+                  PinInputWidget(),
                 ],
               ),
-              SizedBox(height: 20),
-              Column(
-                children: [
-                  SizedBox(height: 20),
-                  GeneralButton("Kirim", () => Get.toNamed(Routes.PIN),
-                      0xff0897A5, Colors.white),
-                ],
-              ),
-              SizedBox(height: 10),
             ],
           ),
         ),
