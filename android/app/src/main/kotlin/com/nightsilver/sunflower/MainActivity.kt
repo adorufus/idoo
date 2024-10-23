@@ -1,4 +1,4 @@
-package id.idoo.idoo
+package com.nightsilver.sunflower
 
 import io.flutter.embedding.android.FlutterActivity
 

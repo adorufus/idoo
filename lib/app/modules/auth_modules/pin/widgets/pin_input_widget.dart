@@ -35,7 +35,7 @@ class PinInputWidget extends GetView<PinController> {
             height: 25,
           ),
           Container(
-            height: 400,
+            // height: 400,
             padding: EdgeInsets.symmetric(horizontal: 74),
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

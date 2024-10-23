@@ -17,12 +17,12 @@ class LandingController extends GetxController {
     print("landing init");
 
     onVerify();
-    initializeFirebaseCloudMessaging();
   }
 
   @override
   void onReady() {
     super.onReady();
+    checkNotificationPermission();
   }
 
   @override
@@ -44,43 +44,9 @@ class LandingController extends GetxController {
     }
   }
 
-  void initializeFirebaseCloudMessaging() async {
+  void checkNotificationPermission() async {
     FirebaseMessaging messaging = FirebaseMessaging.instance;
     await messaging.requestPermission();
-
-    String? token = await FirebaseMessaging.instance.getToken();
-
-    print(token);
-
-    storage.write("fcm_token", token);
-
-    listenToIncomingNotifications();
-  }
-
-  void listenToIncomingNotifications() {
-    // Listen for foreground messages
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      print('Message received: ${message.notification?.title}');
-      // Update GetX observable with the notification data
-      // notificationData.value = message.notification?.title ?? 'No title';
-
-      // Optionally show a snackbar
-      Get.snackbar('Notification', message.notification?.title ?? 'No title');
-    });
-
-    // Handle background and terminated state notifications
-    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      print('Notification caused app to open');
-      // Optionally navigate using GetX
-      // Get.to(
-      //     NotificationDetailsScreen(notification: message.notification?.title));
-    });
-
-    FirebaseMessaging.onBackgroundMessage(backgroundMessageCallback);
-  }
-
-  Future<void> backgroundMessageCallback(RemoteMessage message) async {
-    print("Background message: ${message.notification?.title}");
   }
 
   void onVerify() {
