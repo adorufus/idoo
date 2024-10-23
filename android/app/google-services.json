@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "37557547279",
+    "project_id": "sunflower-bb0c7",
+    "storage_bucket": "sunflower-bb0c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:37557547279:android:ed6e8c9ba03f16a058ce7a",
+        "android_client_info": {
+          "package_name": "com.nightsilver.sunflower"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxBoPI4q-HEjmIebVDxMlVntV0FczswkU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
