@@ -20,7 +20,7 @@ class DistrictInputWidget extends GetView<RegisterController> {
               padding: EdgeInsets.symmetric(horizontal: 10),
               child: TextField(
                   autocorrect: false,
-                  controller: controller.district,
+                  // controller: controller.district,
                   decoration: InputDecoration(
                       hintText: "Kecamatan",
                       border: InputBorder.none,

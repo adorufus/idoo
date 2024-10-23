@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:idoo/app/constants/colors.dart';
 import 'package:idoo/app/global_widgets/general_button.dart';
 import 'package:idoo/app/modules/auth_modules/login/widgets/phone_input_widget.dart';
 
@@ -42,8 +43,20 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ),
                   SizedBox(height: 20),
-                  GeneralButton("Masuk", () => Get.toNamed(Routes.REGISTER),
-                      0xff0897A5, Colors.white),
+                  GeneralButton("Masuk", () => controller.onLogin(),
+                      AppColors.primary, Colors.white),
+                  SizedBox(height: 10),
+                  Container(
+                    width: 228,
+                    child: Text(
+                      "Belum punya akun?",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 10),
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  GeneralButton("Daftar", () => Get.toNamed(Routes.REGISTER),
+                      AppColors.accent, Colors.white),
                 ],
               ),
               SizedBox(height: 10),

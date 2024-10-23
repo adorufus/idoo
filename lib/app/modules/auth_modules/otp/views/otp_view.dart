@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:idoo/app/constants/colors.dart';
 import 'package:idoo/app/modules/auth_modules/otp/widgets/otp_input_widget.dart';
 
 import '../../../../global_widgets/general_button.dart';
@@ -34,10 +35,8 @@ class OtpView extends GetView<OtpController> {
               Column(
                 children: [
                   SizedBox(height: 20),
-                  GeneralButton("Kirim", () => Get.toNamed(Routes.PIN, arguments: {
-                    'title': 'Silahkan Buat PIN'
-                  }),
-                      0xff0897A5, Colors.white),
+                  GeneralButton("Kirim", () => controller.onVerify(),
+                      AppColors.primary, Colors.white),
                 ],
               ),
               SizedBox(height: 10),

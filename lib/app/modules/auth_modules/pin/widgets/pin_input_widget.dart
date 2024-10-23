@@ -54,12 +54,7 @@ class PinInputWidget extends GetView<PinController> {
                   return GestureDetector(
                     onTap: () {
                       if (controller.inputNumbers[index] == "delete") {
-                        for (var pin in controller.pins) {
-                          if (pin["filled"]) {
-                            pin['value'] = -1;
-                            pin['filled'] = false;
-                          }
-                        }
+                        controller.onClear();
 
                         controller.pins.refresh();
 
@@ -75,7 +70,11 @@ class PinInputWidget extends GetView<PinController> {
 
                         controller.pins.refresh();
 
-                        controller.onPinsFilled(Routes.DASHBOARD);
+                        controller.onPinsFilled(controller.current_context ==
+                                    Routes.LOGIN ||
+                                controller.current_context == Routes.REGISTER
+                            ? Routes.OTP
+                            : Routes.DASHBOARD);
 
                         print(controller.pins);
                       }

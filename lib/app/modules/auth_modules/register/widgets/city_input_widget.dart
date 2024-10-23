@@ -20,9 +20,9 @@ class CityInputWidget extends GetView<RegisterController> {
               padding: EdgeInsets.symmetric(horizontal: 10),
               child: TextField(
                   autocorrect: false,
-                  controller: controller.city,
+                  controller: controller.area,
                   decoration: InputDecoration(
-                      hintText: "Kota",
+                      hintText: "Area",
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.only(top: -5)),
                   onEditingComplete: () {})),

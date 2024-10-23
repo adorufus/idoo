@@ -20,7 +20,7 @@ class SubDistrictInputWidget extends GetView<RegisterController> {
               padding: EdgeInsets.symmetric(horizontal: 10),
               child: TextField(
                   autocorrect: false,
-                  controller: controller.subDistrict,
+                  // controller: controller.subDistrict,
                   decoration: InputDecoration(
                       hintText: "Kelurahan",
                       border: InputBorder.none,

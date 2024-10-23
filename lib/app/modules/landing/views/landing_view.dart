@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:idoo/app/global_widgets/general_button.dart';
-import 'package:idoo/app/routes/app_pages.dart';
+import 'package:idoo/app/modules/landing/controllers/landing_controller.dart';
 
-class LandingView extends GetView {
+class LandingView extends GetView<LandingController> {
+
+  const LandingView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,15 +51,7 @@ class LandingView extends GetView {
                       color: Colors.transparent,
                       child: InkWell(
                         onTap: () {
-                          GetStorage storage = GetStorage();
-
-                          if(storage.read('isLoggedIn') == true) {
-                            Get.toNamed(Routes.PIN, arguments: {
-                              'title': 'Masukan PIN'
-                            });
-                          } else {
-                            Get.toNamed(Routes.LOGIN);
-                          }
+                          controller.startupCheck();
                         },
                         child: Container(
                             width: 332,

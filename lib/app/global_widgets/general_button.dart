@@ -7,7 +7,7 @@ class GeneralButton extends GetView {
 
   final String title;
   final Function() action;
-  final int bgColor;
+  final Color bgColor;
   final Color textColor;
 
   @override
@@ -18,7 +18,7 @@ class GeneralButton extends GetView {
         onPressed: action,
         style: ButtonStyle(
             elevation: MaterialStateProperty.all<double>(0),
-            backgroundColor: MaterialStateProperty.all<Color>(Color(bgColor)),
+            backgroundColor: MaterialStateProperty.all<Color>(bgColor),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
