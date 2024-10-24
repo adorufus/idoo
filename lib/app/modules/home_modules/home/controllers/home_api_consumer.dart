@@ -11,4 +11,12 @@ class HomeApiConsumer extends BaseApiService {
     return await get(type,
         headers: {"Authorization": "Bearer ${creds["accessToken"]}"});
   }
+
+  Future<Response> getProducts() async {
+    Map<String, dynamic> creds = box.hasData("creds") ? box.read("creds") : {};
+
+    return await post(
+        '/view-display-case', {"customizationId": 3, "applicationId": 1},
+        headers: {"Authorization": "Bearer ${creds["accessToken"]}"});
+  }
 }

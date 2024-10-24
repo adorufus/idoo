@@ -19,6 +19,7 @@ abstract class Routes {
   static const E_WALLET = _Paths.E_WALLET;
   static const PULSA = _Paths.PULSA;
   static const GAMES = _Paths.GAMES;
+  static const GAMES_PROVIDER = _Paths.GAMES_PROVIDER;
   static const BILL = _Paths.BILL;
   static const TRAVEL = _Paths.TRAVEL;
   static const INSTALLMENT = _Paths.INSTALLMENT;
@@ -46,6 +47,7 @@ abstract class _Paths {
   static const E_WALLET = '/e-wallet';
   static const PULSA = '/pulsa';
   static const GAMES = '/games';
+  static const GAMES_PROVIDER = '/games-provider';
   static const BILL = '/bill';
   static const TRAVEL = '/travel';
   static const INSTALLMENT = '/installment';

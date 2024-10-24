@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:idoo/app/modules/auth_modules/pin/bindings/pin_binding.dart';
 import 'package:idoo/app/modules/auth_modules/pin/views/pin_view.dart';
+import 'package:idoo/app/modules/home_modules/games/child_module/game_product/bindings/game_product_binding.dart';
+import 'package:idoo/app/modules/home_modules/games/child_module/game_product/views/game_product_view.dart';
 import 'package:idoo/app/modules/landing/bindings/landing_binding.dart';
 
 import '../modules/auth_modules/login/bindings/login_binding.dart';
@@ -133,6 +135,11 @@ class AppPages {
       name: _Paths.GAMES,
       page: () => const GamesView(),
       binding: GamesBinding(),
+    ),
+    GetPage(
+      name: _Paths.GAMES_PROVIDER,
+      page: () => GameProductView(),
+      binding: GameProductBinding(),
     ),
     GetPage(
       name: _Paths.BILL,

@@ -28,7 +28,9 @@ class LoginView extends GetView<LoginController> {
                   SizedBox(height: 30),
                   Text("Selamat Datang", style: TextStyle(fontSize: 24)),
                   SizedBox(height: 100),
-                  PhoneInputWidget(),
+                  PhoneInputWidget(
+                    controller: controller.phoneNumber,
+                  ),
                 ],
               ),
               SizedBox(height: 20),

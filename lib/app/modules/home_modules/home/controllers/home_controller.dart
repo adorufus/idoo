@@ -57,6 +57,8 @@ class HomeController extends GetxController {
     },
   ];
 
+  List menuItem = [].obs;
+
   // List get menu => _menu;
 
   // @override
@@ -72,6 +74,26 @@ class HomeController extends GetxController {
 
   @override
   void onClose() {}
+
+  Map<String, dynamic> defineProduct(String rowName, List<dynamic> columns) {
+    if (rowName == "PULSA") {
+      return {
+        "path": "assets/svg/icons/pulsa.svg",
+        "title": "Pulsa & Data",
+        "route": Routes.PULSA,
+        "columns": columns
+      };
+    } else if (rowName == "GAMES") {
+      return {
+        'path': "assets/svg/icons/game.svg",
+        'title': "Game",
+        'route': Routes.GAMES,
+        'columns': columns
+      };
+    } else {
+      return {};
+    }
+  }
 
   void initPersonalData() {
     apiConsumer.getBalance('/get-balance').then((res) {
@@ -107,6 +129,20 @@ class HomeController extends GetxController {
         personalKomis.value = res.body["totalCommission"].toString();
 
         personalKomis.refresh();
+      }
+    });
+
+    apiConsumer.getProducts().then((res) {
+      print(res.body);
+
+      if (res.statusCode != 200) {
+        print("gagal menampilkan produk");
+      } else {
+        List data = res.body["display"]["rows"];
+
+        for (var produk in data) {
+          menuItem.add(defineProduct(produk['rowName'], produk["columns"]));
+        }
       }
     });
   }

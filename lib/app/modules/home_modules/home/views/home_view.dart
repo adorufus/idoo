@@ -68,33 +68,38 @@ class HomeView extends GetView<HomeController> {
               Padding(
                 padding: const EdgeInsets.symmetric(
                     horizontal: 20.0, vertical: 20.0),
-                child: GridView.builder(
-                  shrinkWrap: true,
-                  itemCount: controller.menu.length,
-                  physics: NeverScrollableScrollPhysics(),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 4,
-                  ),
-                  itemBuilder: (context, index) {
-                    Map menuItem = controller.menu[index];
-
-                    return MaterialButton(
-                      minWidth: 40,
-                      onPressed: () => Get.toNamed(menuItem['route']),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset(menuItem['path'],
-                              height: 30, fit: BoxFit.scaleDown),
-                          SizedBox(height: 10),
-                          Text(menuItem['title'],
-                              style: TextStyle(
-                                  color: Color(0xff4E4E4E), fontSize: 10))
-                        ],
+                child: Obx(() => GridView.builder(
+                      shrinkWrap: true,
+                      itemCount: controller.menuItem.length,
+                      physics: NeverScrollableScrollPhysics(),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 4,
                       ),
-                    );
-                  },
-                ),
+                      itemBuilder: (context, index) {
+                        Map menuItem = controller.menuItem[index];
+
+                        return MaterialButton(
+                          minWidth: 40,
+                          onPressed: () => Get.toNamed(
+                            menuItem['route'],
+                            arguments: {
+                              "columns": menuItem["columns"],
+                            },
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset(menuItem['path'],
+                                  height: 30, fit: BoxFit.scaleDown),
+                              SizedBox(height: 10),
+                              Text(menuItem['title'],
+                                  style: TextStyle(
+                                      color: Color(0xff4E4E4E), fontSize: 10))
+                            ],
+                          ),
+                        );
+                      },
+                    )),
               ),
               InkWell(
                 onTap: () {},
@@ -203,12 +208,13 @@ class HomeView extends GetView<HomeController> {
             ]),
           ),
           Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
                 height: 130,
                 color: Color(0xff0897A5),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(
@@ -300,9 +306,10 @@ class HomeView extends GetView<HomeController> {
               ),
               Container(
                 height: 44,
+                padding: EdgeInsets.symmetric(horizontal: 40),
                 color: Color(0xffe8feff),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       children: [
@@ -344,7 +351,7 @@ class HomeView extends GetView<HomeController> {
                       ],
                     ),
                     SizedBox(
-                      width: 67,
+                      // width: 67,
                       height: 25,
                       child: ElevatedButton(
                         onPressed: () {},

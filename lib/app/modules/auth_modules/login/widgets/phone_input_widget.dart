@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:idoo/app/modules/auth_modules/login/controllers/login_controller.dart';
 
-class PhoneInputWidget extends GetView<LoginController> {
+class PhoneInputWidget extends StatelessWidget {
+  final TextEditingController controller;
+
+  PhoneInputWidget({super.key, required this.controller});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,7 +45,7 @@ class PhoneInputWidget extends GetView<LoginController> {
                   child: TextField(
                       autocorrect: false,
                       keyboardType: TextInputType.number,
-                      controller: controller.phoneNumber,
+                      controller: controller,
                       decoration: InputDecoration(
                         hintText: "Nomor HP",
                         border: InputBorder.none,
