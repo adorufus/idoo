@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
@@ -38,7 +38,7 @@ jobs:
 
       - name: Upload APKs (if APK was built)
         if: ${{ github.event.inputs.build_type == 'apk' }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: APKs
           path: |
@@ -48,7 +48,7 @@ jobs:
 
       - name: Upload App Bundle (if App Bundle was built)
         if: ${{ github.event.inputs.build_type == 'appbundle' }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: app-release.aab
           path: build/app/outputs/bundle/release/app-release.aab
