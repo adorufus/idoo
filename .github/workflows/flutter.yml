@@ -70,7 +70,7 @@ jobs:
           git tag $TAG_NAME
           git push origin $TAG_NAME
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN_OKTA }}
 
       - name: Create Release
         id: create_release
@@ -81,7 +81,7 @@ jobs:
           draft: false
           prerelease: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN_OKTA }}
 
       - name: Upload artifacts to Release
         if: ${{ env.BUILD_TYPE == 'apk' || env.BUILD_TYPE == '' }}
@@ -93,7 +93,7 @@ jobs:
             build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
             build/app/outputs/flutter-apk/app-x86_64-release.apk
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN_OKTA }}
 
       - name: Upload App Bundle to Release
         if: ${{ env.BUILD_TYPE == 'appbundle' }}
@@ -102,4 +102,4 @@ jobs:
           tag: ${{ steps.create_tag.outputs.tag_name }} # Use the newly created tag
           files: build/app/outputs/bundle/release/app-release.aab
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN_OKTA }}
