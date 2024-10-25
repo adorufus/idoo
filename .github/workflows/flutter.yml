@@ -30,14 +30,14 @@ jobs:
 
       - name: Build APK or App Bundle
         run: |
-          if [ "${{ github.event.inputs.build_type }}" == "apk" ]; then
+          if [ "${{ inputs.build_type }}" == "apk" ]; then
             flutter build apk --release --split-per-abi
-          elif [ "${{ github.event.inputs.build_type }}" == "appbundle" ]; then
+          elif [ "${{ inputs.build_type }}" == "appbundle" ]; then
             flutter build appbundle --release
           fi
 
       - name: Upload APKs (if APK was built)
-        if: ${{ github.event.inputs.build_type == 'apk' }}
+        if: ${{ inputs.build_type == 'apk' }}
         uses: actions/upload-artifact@v3
         with:
           name: APKs
@@ -47,7 +47,7 @@ jobs:
             build/app/outputs/flutter-apk/app-x86_64-release.apk
 
       - name: Upload App Bundle (if App Bundle was built)
-        if: ${{ github.event.inputs.build_type == 'appbundle' }}
+        if: ${{ inputs.build_type == 'appbundle' }}
         uses: actions/upload-artifact@v3
         with:
           name: app-release.aab
