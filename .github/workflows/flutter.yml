@@ -76,8 +76,8 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ github.ref }} # Use the current ref (branch name or tag)
-          name: Release ${{ github.ref }} # Set the release name
+          tag_name: ${{ steps.create_tag.outputs.tag_name }} # Use the current ref (branch name or tag)
+          name: Release ${{ steps.create_tag.outputs.tag_name }} # Set the release name
           draft: false
           prerelease: false
         env:
@@ -87,7 +87,7 @@ jobs:
         if: ${{ env.BUILD_TYPE == 'apk' || env.BUILD_TYPE == '' }}
         uses: softprops/action-gh-release@v1
         with:
-          tag: ${{ steps.create_tag.outputs.tag_name }} # Use the newly created tag
+          tag_name: ${{ steps.create_tag.outputs.tag_name }} # Use the newly created tag
           files: |
             build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
             build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
