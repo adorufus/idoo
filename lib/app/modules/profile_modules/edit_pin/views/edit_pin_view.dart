@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:idoo/app/constants/colors.dart';
 import 'package:idoo/app/modules/profile_modules/edit_pin/widgets/pin_input_widget.dart';
 
 import '../../../../global_widgets/general_button.dart';
@@ -46,7 +47,7 @@ class EditPinView extends GetView<EditPinController> {
           )),
         ),
         SizedBox(height: 30),
-        GeneralButton("Simpan", () {}, 0xff0897A5, Colors.white)
+        GeneralButton("Simpan", () {}, AppColors.primary, Colors.white)
       ]),
     );
   }

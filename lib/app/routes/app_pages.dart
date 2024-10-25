@@ -1,4 +1,9 @@
 import 'package:get/get.dart';
+import 'package:idoo/app/modules/auth_modules/pin/bindings/pin_binding.dart';
+import 'package:idoo/app/modules/auth_modules/pin/views/pin_view.dart';
+import 'package:idoo/app/modules/home_modules/games/child_module/game_product/bindings/game_product_binding.dart';
+import 'package:idoo/app/modules/home_modules/games/child_module/game_product/views/game_product_view.dart';
+import 'package:idoo/app/modules/landing/bindings/landing_binding.dart';
 
 import '../modules/auth_modules/login/bindings/login_binding.dart';
 import '../modules/auth_modules/login/views/login_view.dart';
@@ -30,7 +35,7 @@ import '../modules/home_modules/top_up/bindings/top_up_binding.dart';
 import '../modules/home_modules/top_up/views/top_up_view.dart';
 import '../modules/home_modules/travel/bindings/travel_binding.dart';
 import '../modules/home_modules/travel/views/travel_view.dart';
-import '../modules/landing/landing_view.dart';
+import '../modules/landing/views/landing_view.dart';
 import '../modules/main_modules/about/bindings/about_binding.dart';
 import '../modules/main_modules/about/views/about_view.dart';
 import '../modules/main_modules/dashboard/bindings/dashboard_binding.dart';
@@ -93,9 +98,14 @@ class AppPages {
       binding: OtpBinding(),
     ),
     GetPage(
-      name: _Paths.LANDING,
-      page: () => LandingView(),
+      name: _Paths.PIN,
+      page: () => const PinView(),
+      binding: PinBinding(),
     ),
+    GetPage(
+        name: _Paths.LANDING,
+        page: () => const LandingView(),
+        binding: LandingBinding()),
     GetPage(
       name: _Paths.EDIT_PROFILE,
       page: () => const EditProfileView(),
@@ -125,6 +135,11 @@ class AppPages {
       name: _Paths.GAMES,
       page: () => const GamesView(),
       binding: GamesBinding(),
+    ),
+    GetPage(
+      name: _Paths.GAMES_PROVIDER,
+      page: () => GameProductView(),
+      binding: GameProductBinding(),
     ),
     GetPage(
       name: _Paths.BILL,

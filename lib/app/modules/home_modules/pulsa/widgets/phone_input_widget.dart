@@ -3,7 +3,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:idoo/app/modules/home_modules/pulsa/controllers/pulsa_controller.dart';
 
-class PhoneInputWidget extends GetView<PulsaController> {
+class PhoneInputWidget extends StatelessWidget {
+
+  final TextEditingController controller;
+
+  const PhoneInputWidget({super.key, required this.controller});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -17,6 +22,7 @@ class PhoneInputWidget extends GetView<PulsaController> {
           height: 48,
           child: TextField(
             style: TextStyle(fontSize: 12),
+            controller: controller,
             decoration: InputDecoration(
                 contentPadding: EdgeInsets.only(left: 20),
                 floatingLabelBehavior: FloatingLabelBehavior.never,

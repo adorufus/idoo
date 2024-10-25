@@ -1,13 +1,18 @@
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class EditProfileController extends GetxController {
   //TODO: Implement EditProfileController
   List<String> dropdownText = ['abc', 'def', 'ghi'];
+  Map<String, dynamic> data = {};
+  GetStorage box = GetStorage();
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
+    data = box.read("profile_data");
+
+    print(data);
   }
 
   @override
@@ -19,6 +24,4 @@ class EditProfileController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
-  void increment() => count.value++;
 }

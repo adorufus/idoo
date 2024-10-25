@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:idoo/app/constants/colors.dart';
 import 'package:idoo/app/modules/auth_modules/register/widgets/city_input_widget.dart';
 import 'package:idoo/app/modules/auth_modules/register/widgets/district_input_widget.dart';
 import 'package:idoo/app/modules/auth_modules/register/widgets/name_input_widget.dart';
@@ -14,6 +15,7 @@ import '../controllers/register_controller.dart';
 
 class RegisterView extends GetView<RegisterController> {
   const RegisterView({Key? key}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,8 +41,6 @@ class RegisterView extends GetView<RegisterController> {
                   NameInputWidget(),
                   PhoneInputWidget(),
                   CityInputWidget(),
-                  DistrictInputWidget(),
-                  SubDistrictInputWidget(),
                   ReferralInputWidget(),
                 ],
               ),
@@ -49,12 +49,19 @@ class RegisterView extends GetView<RegisterController> {
                 width: MediaQuery.of(context).size.width - 80,
                 child: Row(
                   children: [
-                    Container(
-                      width: 26,
-                      height: 26,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(6),
-                        color: Color(0xffCDFBFF),
+                    Obx(
+                      () => GestureDetector(
+                        onTap: () => controller.agree.value = !controller.agree.value,
+                        child: Container(
+                          width: 26,
+                          height: 26,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(6),
+                            color: controller.agree.value
+                                ? AppColors.primary
+                                : Color(0xffCDFBFF),
+                          ),
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -71,7 +78,10 @@ class RegisterView extends GetView<RegisterController> {
                 ),
               ),
               SizedBox(height: 20),
-              GeneralButton("Daftar", () => Get.toNamed(Routes.OTP), 0xff0897A5,
+              GeneralButton(
+                  "Daftar",
+                  () => controller.onProceed(),
+                  AppColors.primary,
                   Colors.white),
             ],
           ),

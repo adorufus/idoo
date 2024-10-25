@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:idoo/app/constants/colors.dart';
 import 'package:idoo/app/global_widgets/general_button.dart';
 
 import '../controllers/edit_password_controller.dart';
@@ -46,7 +47,7 @@ class EditPasswordView extends GetView<EditPasswordController> {
           )),
         ),
         SizedBox(height: 30),
-        GeneralButton("Simpan", () {}, 0xff0897A5, Colors.white)
+        GeneralButton("Simpan", () {}, AppColors.primary, Colors.white)
       ]),
     );
   }

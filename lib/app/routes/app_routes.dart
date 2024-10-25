@@ -11,6 +11,7 @@ abstract class Routes {
   static const LOGIN = _Paths.LOGIN;
   static const REGISTER = _Paths.REGISTER;
   static const OTP = _Paths.OTP;
+  static const PIN = _Paths.PIN;
   static const LANDING = _Paths.LANDING;
   static const EDIT_PROFILE = _Paths.EDIT_PROFILE;
   static const EDIT_PASSWORD = _Paths.EDIT_PASSWORD;
@@ -18,6 +19,7 @@ abstract class Routes {
   static const E_WALLET = _Paths.E_WALLET;
   static const PULSA = _Paths.PULSA;
   static const GAMES = _Paths.GAMES;
+  static const GAMES_PROVIDER = _Paths.GAMES_PROVIDER;
   static const BILL = _Paths.BILL;
   static const TRAVEL = _Paths.TRAVEL;
   static const INSTALLMENT = _Paths.INSTALLMENT;
@@ -37,6 +39,7 @@ abstract class _Paths {
   static const LOGIN = '/login';
   static const REGISTER = '/register';
   static const OTP = '/otp';
+  static const PIN = '/pin';
   static const LANDING = '/landing';
   static const EDIT_PROFILE = '/edit-profile';
   static const EDIT_PASSWORD = '/edit-password';
@@ -44,6 +47,7 @@ abstract class _Paths {
   static const E_WALLET = '/e-wallet';
   static const PULSA = '/pulsa';
   static const GAMES = '/games';
+  static const GAMES_PROVIDER = '/games-provider';
   static const BILL = '/bill';
   static const TRAVEL = '/travel';
   static const INSTALLMENT = '/installment';

@@ -1,12 +1,20 @@
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:idoo/app/modules/home_modules/home/controllers/home_api_consumer.dart';
 
 import '../../../../routes/app_pages.dart';
 
 class HomeController extends GetxController {
   //TODO: Implement HomeController
 
-  final count = 0.obs;
-  final _menu = [
+  GetStorage box = GetStorage();
+  HomeApiConsumer apiConsumer = Get.find<HomeApiConsumer>();
+
+  RxString personalBalance = "".obs;
+  RxString personalPoint = "".obs;
+  RxString personalKomis = "".obs;
+
+  List menu = [
     {
       'path': "assets/svg/icons/pulsa.svg",
       'title': "Pulsa & Data",
@@ -49,19 +57,93 @@ class HomeController extends GetxController {
     },
   ];
 
-  List get menu => _menu;
+  List menuItem = [].obs;
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
+  // List get menu => _menu;
+
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  // }
 
   @override
   void onReady() {
     super.onReady();
+    initPersonalData();
   }
 
   @override
   void onClose() {}
-  void increment() => count.value++;
+
+  Map<String, dynamic> defineProduct(String rowName, List<dynamic> columns) {
+    if (rowName == "PULSA") {
+      return {
+        "path": "assets/svg/icons/pulsa.svg",
+        "title": "Pulsa & Data",
+        "route": Routes.PULSA,
+        "columns": columns
+      };
+    } else if (rowName == "GAMES") {
+      return {
+        'path': "assets/svg/icons/game.svg",
+        'title': "Game",
+        'route': Routes.GAMES,
+        'columns': columns
+      };
+    } else {
+      return {};
+    }
+  }
+
+  void initPersonalData() {
+    apiConsumer.getBalance('/get-balance').then((res) {
+      print(res.body);
+
+      if (res.statusCode != 200) {
+        print(res.body);
+      } else {
+        personalBalance.value = res.body["totalBalance"].toString();
+
+        personalBalance.refresh();
+      }
+    });
+
+    apiConsumer.getBalance('/get-point').then((res) {
+      print(res.body);
+
+      if (res.statusCode != 200) {
+        print(res.body);
+      } else {
+        personalPoint.value = res.body["totalPoint"].toString();
+
+        personalPoint.refresh();
+      }
+    });
+
+    apiConsumer.getBalance('/get-commission').then((res) {
+      print(res.body);
+
+      if (res.statusCode != 200) {
+        print(res.body);
+      } else {
+        personalKomis.value = res.body["totalCommission"].toString();
+
+        personalKomis.refresh();
+      }
+    });
+
+    apiConsumer.getProducts().then((res) {
+      print(res.body);
+
+      if (res.statusCode != 200) {
+        print("gagal menampilkan produk");
+      } else {
+        List data = res.body["display"]["rows"];
+
+        for (var produk in data) {
+          menuItem.add(defineProduct(produk['rowName'], produk["columns"]));
+        }
+      }
+    });
+  }
 }

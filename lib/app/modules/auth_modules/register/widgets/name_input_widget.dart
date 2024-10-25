@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:idoo/app/constants/colors.dart';
 import 'package:idoo/app/modules/auth_modules/register/controllers/register_controller.dart';
 
 class NameInputWidget extends GetView<RegisterController> {
@@ -22,7 +23,9 @@ class NameInputWidget extends GetView<RegisterController> {
                   autocorrect: false,
                   controller: controller.name,
                   decoration: InputDecoration(
-                      hintText: "Nama",
+                      hintText: "Username",
+                      suffixText: "*",
+                      suffixStyle: TextStyle(color: AppColors.red, fontSize: 20),
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.only(top: -5)),
                   onEditingComplete: () {})),

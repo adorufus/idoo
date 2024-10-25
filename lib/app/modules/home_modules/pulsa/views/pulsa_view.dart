@@ -41,7 +41,9 @@ class PulsaView extends GetView<PulsaController> {
                           ),
                         ),
                         SizedBox(height: 30),
-                        PhoneInputWidget(),
+                        PhoneInputWidget(
+                          controller: controller.phoneController,
+                        ),
                       ],
                     ),
                     PulsaTabWidget()

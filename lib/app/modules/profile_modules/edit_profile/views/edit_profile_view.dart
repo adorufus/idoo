@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:idoo/app/constants/colors.dart';
 import 'package:idoo/app/global_widgets/general_button.dart';
 
 import '../controllers/edit_profile_controller.dart';
@@ -55,7 +56,7 @@ class EditProfileView extends GetView<EditProfileController> {
                 ),
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: Text("Agus Salim",
+                  child: Text(controller.data["firstName"],
                       style: TextStyle(color: Color(0xff454545), fontSize: 12)),
                 ),
               )
@@ -78,7 +79,7 @@ class EditProfileView extends GetView<EditProfileController> {
                 ),
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: Text("+62 823-1234-1234",
+                  child: Text(controller.data["phoneNumber"],
                       style: TextStyle(color: Color(0xff454545), fontSize: 12)),
                 ),
               )
@@ -124,7 +125,7 @@ class EditProfileView extends GetView<EditProfileController> {
                 ),
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: Text("agussalim@gmail.com",
+                  child: Text(controller.data["email"],
                       style: TextStyle(color: Color(0xff454545), fontSize: 12)),
                 ),
               )
@@ -223,7 +224,7 @@ class EditProfileView extends GetView<EditProfileController> {
             ],
           ),
           SizedBox(height: 30),
-          GeneralButton("Simpan", () {}, 0xff0897A5, Colors.white)
+          GeneralButton("Simpan", () {}, AppColors.primary, Colors.white)
         ]),
       )),
     );

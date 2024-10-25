@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:idoo/app/constants/colors.dart';
 
 import '../../../../global_widgets/general_button.dart';
 import '../controllers/history_detail_controller.dart';
@@ -171,7 +172,7 @@ class HistoryDetailView extends GetView<HistoryDetailController> {
               ),
             ),
             SizedBox(height: 30),
-            GeneralButton("Beli Lagi", () {}, 0xff0897A5, Colors.white)
+            GeneralButton("Beli Lagi", () {}, AppColors.primary, Colors.white)
           ],
         ));
   }

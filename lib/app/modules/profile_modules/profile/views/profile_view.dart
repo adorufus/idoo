@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:idoo/app/routes/app_pages.dart';
 
 import '../controllers/profile_controller.dart';
@@ -28,13 +29,22 @@ class ProfileView extends GetView<ProfileController> {
               leading: CircleAvatar(
                 radius: 50,
               ),
-              title: Text("Agus Abimanyu Alfahri",
-                  style: TextStyle(
-                      color: Color(0xff454545),
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold)),
-              subtitle: Text("+62 812-1234-1234",
-                  style: TextStyle(color: Colors.grey.shade400, fontSize: 14)),
+              title: controller.profileMap.isEmpty
+                  ? Container()
+                  : Obx(
+                      () => Text(
+                        "${controller.profileMap["firstName"]} ${controller.profileMap["lastName"]}",
+                        style: TextStyle(
+                            color: Color(0xff454545),
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+              subtitle: controller.profileMap.isEmpty
+                  ? Container()
+                  : Obx(() => Text(controller.profileMap["phoneNumber"],
+                      style: TextStyle(
+                          color: Colors.grey.shade400, fontSize: 14))),
             )),
           ),
           SizedBox(height: 20),
@@ -140,7 +150,8 @@ class ProfileView extends GetView<ProfileController> {
                   Material(
                     color: Colors.transparent,
                     child: InkWell(
-                      onTap: () => Get.toNamed(Routes.EDIT_PROFILE),
+                      onTap: () => Get.toNamed(Routes.EDIT_PROFILE,
+                          arguments: {"data", controller.profileMap}),
                       child: Container(
                         height: 66,
                         decoration: BoxDecoration(
@@ -235,7 +246,17 @@ class ProfileView extends GetView<ProfileController> {
             width: MediaQuery.of(context).size.width,
             height: 66,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                GetStorage box = GetStorage();
+
+                if (box.hasData('isLoggedIn')) {
+                  box.remove('creds');
+                  box.remove('temp_auth_data');
+                  box.remove('isLoggedIn').then((_) {
+                    Get.toNamed(Routes.LANDING)?.then((val) {});
+                  });
+                }
+              },
               style: ButtonStyle(
                   elevation: MaterialStateProperty.all<double>(0),
                   backgroundColor:

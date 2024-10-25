@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:idoo/app/constants/colors.dart';
 import 'package:idoo/app/modules/auth_modules/register/controllers/register_controller.dart';
 
 class PhoneInputWidget extends GetView<RegisterController> {
@@ -24,6 +25,9 @@ class PhoneInputWidget extends GetView<RegisterController> {
                   controller: controller.phoneNumber,
                   decoration: InputDecoration(
                       hintText: "No.Telp",
+                      suffixText: "*",
+                      suffixStyle:
+                          TextStyle(color: AppColors.red, fontSize: 20),
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.only(top: -5)),
                   onEditingComplete: () {})),
