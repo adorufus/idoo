@@ -5,12 +5,12 @@ on:
     branches:
       - "**" #trigger on all branches
 
-  workflow_dispatch:  # Allows manually triggering the workflow with inputs
+  workflow_dispatch: # Allows manually triggering the workflow with inputs
     inputs:
       build_type:
-        description: 'Choose build type (apk or appbundle)'
+        description: "Choose build type (apk or appbundle)"
         required: true
-        default: 'apk'
+        default: "apk"
 
 jobs:
   build:
@@ -30,7 +30,7 @@ jobs:
 
       - name: Build APK or App Bundle
         run: |
-          if [ "${{ inputs.build_type }}" == "apk" ]; then
+          if [ "${{ inputs.build_type }}" == "apk" || "${{ inputs.build_type }}" == "" ]; then
             flutter build apk --release --split-per-abi
           elif [ "${{ inputs.build_type }}" == "appbundle" ]; then
             flutter build appbundle --release
