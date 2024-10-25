@@ -67,8 +67,9 @@ jobs:
         run: |
           TAG_NAME="v${{ github.run_number }}"
           echo "Creating tag: $TAG_NAME"
-          git tag $TAG_NAME
-          git push origin $TAG_NAME
+          git tag "$TAG_NAME"
+          git push origin "$TAG_NAME"
+          echo "::set-output name=tag_name::$TAG_NAME" # Set as output for later steps
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -76,8 +77,8 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ env.TAG_NAME }} # Use the created tag
-          name: "Release ${{ env.TAG_NAME }}" # Set the release name
+          tag_name: ${{ steps.create_tag.outputs.tag_name }} # Use the created tag
+          name: "Release ${{ steps.create_tag.outputs.tag_name }}" # Set the release name
           draft: false
           prerelease: false
         env:
@@ -87,7 +88,7 @@ jobs:
         if: ${{ env.BUILD_TYPE == 'apk' || env.BUILD_TYPE == '' }}
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ env.TAG_NAME }} # Use the newly created tag
+          tag_name: ${{ steps.create_tag.outputs.tag_name }} # Use the newly created tag
           files: |
             build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
             build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
@@ -99,7 +100,7 @@ jobs:
         if: ${{ env.BUILD_TYPE == 'appbundle' }}
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ env.TAG_NAME }} # Use the newly created tag
+          tag_name: ${{ steps.create_tag.outputs.tag_name }} # Use the newly created tag
           files: build/app/outputs/bundle/release/app-release.aab
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
