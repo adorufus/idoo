@@ -33,7 +33,7 @@ jobs:
 
       - name: Build APK or App Bundle
         run: |
-          if [ "$BUILD_TYPE" == "apk" || "$BUILD_TYPE" == ""]; then
+          if [ -z "$BUILD_TYPE" ] || [ "$BUILD_TYPE" == "apk" ]; then
             flutter build apk --release --split-per-abi
           elif [ "$BUILD_TYPE" == "appbundle" ]; then
             flutter build appbundle --release
