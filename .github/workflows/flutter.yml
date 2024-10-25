@@ -28,16 +28,19 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Set build type as environment variable
+        run: echo "BUILD_TYPE=${{ github.event.inputs.build_type }}" >> $GITHUB_ENV
+
       - name: Build APK or App Bundle
         run: |
-          if [ "${{ inputs.build_type }}" == "apk" || "${{ inputs.build_type }}" == "" ]; then
+          if [ "$BUILD_TYPE" == "apk" || "$BUILD_TYPE" == ""]; then
             flutter build apk --release --split-per-abi
-          elif [ "${{ inputs.build_type }}" == "appbundle" ]; then
+          elif [ "$BUILD_TYPE" == "appbundle" ]; then
             flutter build appbundle --release
           fi
 
       - name: Upload APKs (if APK was built)
-        if: ${{ inputs.build_type == 'apk' }}
+        if: ${{ env.BUILD_TYPE == 'apk' }}
         uses: actions/upload-artifact@v3
         with:
           name: APKs
@@ -47,7 +50,7 @@ jobs:
             build/app/outputs/flutter-apk/app-x86_64-release.apk
 
       - name: Upload App Bundle (if App Bundle was built)
-        if: ${{ inputs.build_type == 'appbundle' }}
+        if: ${{ env.BUILD_TYPE == 'appbundle' }}
         uses: actions/upload-artifact@v3
         with:
           name: app-release.aab
